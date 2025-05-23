@@ -1,0 +1,15 @@
+tt.*
+.tests
+doc/tags
+debug
+.repro
+foo.*
+*.log
+data
+cat > .gitignore <<EOF
+/lazy-lock.json
+/.luarc.json
+/node_modules
+/.DS_Store
+/.github
+EOF
