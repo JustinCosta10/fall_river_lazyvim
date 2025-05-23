@@ -13,3 +13,4 @@ cat > .gitignore <<EOF
 /.DS_Store
 /.github
 EOF
+/.neoconf.json
