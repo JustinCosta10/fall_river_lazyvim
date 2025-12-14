@@ -1,14 +1,20 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-vim.keymap.set("n", "<leader>uh", function()
-  local bufnr = vim.api.nvim_get_current_buf()
+vim.keymap.set("n", "<leader>h", function()
+  local path = vim.fn.expand("~/.config/nvim/nvim_notes.md")
+  local buf = vim.fn.bufadd(path)
+  vim.fn.bufload(buf)
 
-  if vim.lsp.inlay_hint and vim.lsp.inlay_hint.enable then
-    local enabled = false
-    if vim.lsp.inlay_hint.is_enabled then
-      enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
-    end
-    vim.lsp.inlay_hint.enable(not enabled, { bufnr = bufnr })
-  end
-end, { desc = "Toggle LSP inlay hints" })
+  vim.bo[buf].modifiable = false
+  vim.bo[buf].bufhidden = "wipe"
+
+  vim.api.nvim_open_win(buf, true, {
+    relative = "editor",
+    width = math.floor(vim.o.columns * 0.6),
+    height = math.floor(vim.o.lines * 0.6),
+    row = 2,
+    col = 4,
+    border = "rounded",
+  })
+end, { desc = "Open notes (floating)" })
