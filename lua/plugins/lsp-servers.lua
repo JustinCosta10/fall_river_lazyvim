@@ -20,16 +20,4 @@ return {
       },
     },
   },
-
-  -- Ensure Mason installs the LSPs
-  {
-    "williamboman/mason-lspconfig.nvim",
-    opts = function(_, opts)
-      opts.ensure_installed = vim.tbl_extend("force", opts.ensure_installed or {}, {
-        "clangd",
-        "jsonls",
-        "pyright"
-      })
-    end,
-  },
 }
