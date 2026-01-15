@@ -1,3 +1,10 @@
+w -> next word start
+e -> end of word
+b -> previous word start
+
+Open Explorer
+Space E
+
 Comment multiple lines:
 visual mode -> gc
 
@@ -26,9 +33,6 @@ gr
 Hop back to previous jump:
 ctrl O
 
-Toggle typing and hints:
-Space u h
-
 Replace symbol cross file:
 Space  cr
 
@@ -36,3 +40,5 @@ Hint Bindings:
 Space h
 
 ripgrep rg 'search'
+
+
